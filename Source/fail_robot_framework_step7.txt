@@ -1,0 +1,34 @@
+*** Settings ***
+Library 		Selenium2Library
+
+*** Variables ***
+${URL} 			https://www.tokopedia.com/bantuan/
+${BROWSER}		ff
+${TITLE}		Pusat Bantuan
+${DETAIL PROBLEM}	Hanya untuk automated testing menggunakan robot framework
+${DETAIL PROBLEM LOCATOR} id=ticket_reply_msg
+${NAME} 	Kemas Muhammad Rouf
+${NAME LOCATOR}	id=full_name
+${EMAIL}	kemasmuhammadrouf@gmail.com
+${EMAIL LOCATOR}		id=user_email
+${LAMP} gambar
+${LAMP LOCATOR}		id=pickfiles-nav1
+${SEND BUTTON LOCATOR}	id=send-message
+
+Enter Detail Problem
+Input Text ${DETAIL PROBLEM LOCATOR} ${DETAIL PROBLEM}
+
+Enter Name
+Input Text ${NAME LOCATOR} ${NAME}
+
+Enter Email
+Input Text ${EMAIL LOCATOR} ${EMAIL}
+
+Enter Lamp
+Input Text ${LAMP LOCATOR} ${LAMP}
+
+Submit Information
+	Click Button ${SEND BUTTON LOCATOR}
+
+ERROR 
+	Submit Should Have Failed
